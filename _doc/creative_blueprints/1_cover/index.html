@@ -1,0 +1,38 @@
+<style>
+.mode-landscape .sl-layout { flex-direction: row; }
+.mode-portrait .sl-layout { flex-direction: column; }
+.mode-landscape .sl-left { width: 55%; }
+.mode-portrait .sl-left { width: 100%; height: 55%; }
+.mode-landscape .sl-right { width: 45%; }
+.mode-portrait .sl-right { width: 100%; height: 45%; }
+</style>
+<section class="w-full h-full overflow-auto bg-white">
+  <div class="sl-layout flex h-full">
+    <!-- Left: Brand Identity -->
+    <div class="sl-left flex flex-col justify-between p-12 bg-rose-900">
+      <div>
+        <span class="inline-block text-rose-300 text-xs font-semibold tracking-widest uppercase mb-10">Minimal Landing Page</span>
+        <h1 class="text-6xl font-black text-white leading-none mb-2">SusieQ</h1>
+        <h2 class="text-5xl font-black text-rose-400 leading-none mb-10">Kitchen</h2>
+        <p class="text-base text-rose-200 font-light leading-relaxed max-w-xs">
+          One section. Bold identity.<br>
+          Everything a first impression needs — nothing it doesn't.
+        </p>
+      </div>
+      <div>
+        <div class="w-8 h-0.5 bg-rose-500 mb-4"></div>
+        <p class="text-xs text-rose-400 uppercase tracking-widest mb-4">Pink-Reddish · Fast · Minimal</p>
+        <data-attribution />
+      </div>
+    </div>
+    <!-- Right: Visual -->
+    <div class="sl-right relative overflow-hidden bg-rose-950">
+      <img
+        src="https://api.qb-deck.quantumbyte.ai/common/image-generation?prompt=cozy%20home%20kitchen%20scene%2C%20warm%20reddish%20pink%20tones%2C%20food%20editorial%20photography%2C%20soft%20warm%20light%2C%20appetizing%20atmosphere"
+        alt="SusieQ Kitchen"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-rose-900 to-transparent" style="opacity:0.35"></div>
+    </div>
+  </div>
+</section>
