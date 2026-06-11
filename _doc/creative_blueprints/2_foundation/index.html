@@ -1,0 +1,37 @@
+<style>
+.mode-landscape .sl-layout { flex-direction: row; }
+.mode-portrait .sl-layout { flex-direction: column; }
+.mode-landscape .sl-narrative { width: 50%; }
+.mode-portrait .sl-narrative { width: 100%; }
+.mode-landscape .sl-visual { width: 50%; }
+.mode-portrait .sl-visual { width: 100%; height: 35%; }
+</style>
+<section class="w-full h-full overflow-auto bg-white">
+  <div class="sl-layout flex h-full">
+    <!-- Left: Problem / Solution -->
+    <div class="sl-narrative flex flex-col justify-center p-12">
+      <!-- Problem -->
+      <div class="mb-8">
+        <span class="inline-block bg-rose-100 text-rose-700 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">The Problem</span>
+        <h3 class="text-xl font-bold text-slate-800 mb-3 leading-snug">Food brands lose customers in the first three seconds online.</h3>
+        <p class="text-sm text-slate-500 leading-relaxed">Cluttered websites with too many pages, competing messages, and no clear hook send visitors away before they can feel the brand. First impressions are won or lost before anyone scrolls.</p>
+      </div>
+      <!-- Divider -->
+      <div class="w-full h-px bg-rose-100 mb-8"></div>
+      <!-- Solution -->
+      <div>
+        <span class="inline-block bg-rose-600 text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">The Solution</span>
+        <h3 class="text-xl font-bold text-slate-800 mb-3 leading-snug">One focused section that lands the brand — fast.</h3>
+        <p class="text-sm text-slate-500 leading-relaxed">SusieQ Kitchen's minimal landing page delivers identity, warmth, and a clear CTA in a single, beautiful hero section. No noise. No clutter. Just the brand at its best.</p>
+      </div>
+    </div>
+    <!-- Right: Visual -->
+    <div class="sl-visual relative overflow-hidden bg-rose-50">
+      <img
+        src="https://api.qb-deck.quantumbyte.ai/common/image-generation?prompt=person%20cooking%20joyfully%20in%20a%20warm%20home%20kitchen%2C%20pink%20reddish%20tones%2C%20intimate%20food%20photography%2C%20editorial%20style%2C%20warm%20light"
+        alt="Kitchen warmth"
+        class="w-full h-full object-cover"
+      />
+    </div>
+  </div>
+</section>
