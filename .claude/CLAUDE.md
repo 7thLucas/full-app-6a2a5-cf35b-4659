@@ -9,7 +9,6 @@
 - State Management: React Hooks + local Context (ui-specific)
 - Styling: Tailwind CSS + shadcn/ui
 - Backend: Express + MongoDB (Mongoose & Typegoose)
-- Ensure Typegoose is in valid syntax.
 
 # Project Structure
 - `/app/api/` → Express backend operations (controllers, models, services, guards, and middleware).

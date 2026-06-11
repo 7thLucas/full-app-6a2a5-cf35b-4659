@@ -42,7 +42,7 @@ export const configurableSchemas: ConfigurableSchemas = {
     {
       fieldName: "logoUrl",
       type: "url",
-      required: false,
+      required: true,
       label: "Logo URL",
     },
     {
@@ -70,47 +70,6 @@ export const configurableSchemas: ConfigurableSchemas = {
           label: "Accent",
         },
       ],
-    },
-    {
-      fieldName: "heroTagline",
-      type: "string",
-      required: false,
-      label: "Hero Tagline",
-      maxLength: 120,
-    },
-    {
-      fieldName: "heroSubtext",
-      type: "string",
-      required: false,
-      label: "Hero Subtext",
-      maxLength: 200,
-    },
-    {
-      fieldName: "ctaLabel",
-      type: "string",
-      required: false,
-      label: "CTA Button Label",
-      maxLength: 40,
-    },
-    {
-      fieldName: "ctaHref",
-      type: "string",
-      required: false,
-      label: "CTA Button Link (URL or mailto)",
-      maxLength: 200,
-    },
-    {
-      fieldName: "heroImage",
-      type: "file",
-      required: false,
-      label: "Hero Background Image",
-    },
-    {
-      fieldName: "footerLine",
-      type: "string",
-      required: false,
-      label: "Footer Contact / Social Line",
-      maxLength: 160,
     },
   ],
 };
