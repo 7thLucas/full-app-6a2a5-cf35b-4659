@@ -1,0 +1,1 @@
+create landing page only for 1 section very minimal for SusieQ kitchen. color pink reddish. fast.
