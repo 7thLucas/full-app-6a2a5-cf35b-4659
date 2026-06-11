@@ -1,6 +1,20 @@
 # Project Overview
-- Purpose: Full-stack web application with RBAC, modular features, and admin dashboards.
-- High-level system type: Admin Dashboard / SaaS Base Template
+- Purpose: **Susie Q's Diner — Food-Safety Compliance app**. Restaurant staff upload mandatory training certificates, signed SOPs, and assessment results; an AI judgment engine evaluates each upload and the system tracks per-employee compliance. Built on top of a modular RBAC SaaS base template.
+- High-level system type: Compliance / Admin Dashboard (SaaS base template, re-skinned + re-contented for the diner case).
+
+# App Context (CURRENT APP — read this first)
+This repo is a **fork of `quantumbytes-template-base`** (the sibling reference repo). The product logic is intentionally kept aligned with that base; only **branding, theme/colors, copy, departments, and the seed** differ. When changing logic, prefer matching the base; when changing look/feel/content, keep it diner-specific.
+
+- **Brand:** "Susie Q's" — logo is `logo.png` (rosy-pink wordmark, transparent bg), wired via `BrandMark` in `app/lib/compliance-theme.tsx`.
+- **Theme:** "Fresh Kitchen" pink/plum palette (NOT green). Tokens live in `app/lib/compliance-theme.tsx` (`--accent #B85C72`, `--ink #3B1C26` plum header, `--paper #FBF5F1` blush cream; `--ok` stays green for the "Compliant/pass" chip only). The `.cmp` class scopes these CSS vars. Do NOT reintroduce the old green/insurance palette.
+- **Roles:** internal `UserRole` is `"HR" | "Employee"`. `HR` is displayed as **"Manager / Owner" (Susie Q)** — do NOT rename the internal value (keeps session/redirect/backend untouched). Manager lands on `/hr/dashboard`, staff on `/employee/dashboard`.
+- **Departments / stations:** `Department = "All" | "Kitchen" | "Front-of-House" | "Cleaning"` (defined in `app/lib/compliance-demo.ts`). These replaced the old `Sales/Compliance`.
+- **Demo accounts** (`app/lib/compliance-demo.ts`, password `Demo@123`): Susie Q (Manager/`All`), Jack Turner (Kitchen), Emily Carter (Front-of-House), Mike Bennett (Cleaning). Demo auth is client-side via localStorage (`susie-q-compliance-demo-session`).
+- **Compliance pages (the app surface):** `app/routes/_index.tsx` (landing), `app/routes/login.tsx`, `app/routes/hr.dashboard.tsx` (Manager console), `app/routes/employee.dashboard.tsx` (staff). Shared helpers: `app/lib/compliance-theme.tsx`, `app/lib/compliance-demo.ts`, `app/lib/compliance-api.client.ts`.
+- **Judgment engine:** the compliance UI talks to the generic `judgment` module via `/api/judgment/*` (the `compliance-api.client.ts` adapter maps diner configs/submissions onto judgment configs). The `judgment.*` routes are the generic engine — leave them generic. Status is **verdict-driven** (AI `result.verdict` of `pass`/`ready` ⇒ Submitted, else Needs Review). There is intentionally **NO numeric quiz-score input field** — score thresholds (e.g. SOP's "min 80%") live inside each criterion's `passCriteria` text so the AI infers them from the uploaded evidence.
+- **Seed:** `app/modules/judgment/judgment.seed.ts` seeds the diner SOP configs (Food Safety→Kitchen, Allergy Awareness→Front-of-House, Sanitation→Cleaning, Signed SOP→All), idempotent upsert on `pluginId`. Source SOP: Susie Q's Diner Compliance SOP v1.0.
+- **Submit upload contract:** the submit route mounts `upload.array("files")` — the multipart field MUST be `"files"` (the `/parse` route uses `upload.single("file")`).
+- **Demo asset:** `Food-Safety-Certificate-Jack-Turner.pdf` (repo root) is a Kitchen-compliant sample cert (score 92%, future expiry); generator at `scripts/make-cert-pdf.cjs`.
 
 # Tech Stack
 - Framework: Remix (Vite plugin) + Express (Custom Server)
