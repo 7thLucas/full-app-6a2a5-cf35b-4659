@@ -66,3 +66,13 @@ export async function apiGet<T = any>(
     params,
   });
 }
+
+export async function apiPost<T = any>(
+  path: string,
+  data?: any,
+): Promise<ApiResponse<T>> {
+  return apiRequest<T>(path, {
+    method: "POST",
+    data,
+  });
+}
